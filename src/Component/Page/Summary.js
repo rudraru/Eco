@@ -9,7 +9,6 @@ const SummaryPage = () => {
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [contactNumber, setContactNumber] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   useEffect(() => {
@@ -49,7 +48,7 @@ const SummaryPage = () => {
       return;
     }
 
-    setIsLoading(true); // Enable loading state
+ 
 
     // Create the invoice object
     const invoice = {
