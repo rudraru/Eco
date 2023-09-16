@@ -23,7 +23,7 @@ function App() {
   return (
     <div>
       <Navigation />
-   
+   <Home/>
       <Routes>
         <Route path="/private/*" element={<PrivateDashboard />} />
         <Route path="/private/login" element={<PLogin />} />
