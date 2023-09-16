@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Kishanbazar.github.io/static/css/main.972b2e52.css",
-    "main.js": "/Kishanbazar.github.io/static/js/main.57c840b5.js",
-    "static/js/787.28cb0dcd.chunk.js": "/Kishanbazar.github.io/static/js/787.28cb0dcd.chunk.js",
-    "static/media/Veglady.png": "/Kishanbazar.github.io/static/media/Veglady.319c615a874bbad8e814.png",
-    "index.html": "/Kishanbazar.github.io/index.html",
-    "main.972b2e52.css.map": "/Kishanbazar.github.io/static/css/main.972b2e52.css.map",
-    "main.57c840b5.js.map": "/Kishanbazar.github.io/static/js/main.57c840b5.js.map",
-    "787.28cb0dcd.chunk.js.map": "/Kishanbazar.github.io/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/static/css/main.5d7b0c5d.css",
+    "main.js": "/static/js/main.cb897f26.js",
+    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
+    "static/media/Veglady.png": "/static/media/Veglady.319c615a874bbad8e814.png",
+    "index.html": "/index.html",
+    "main.5d7b0c5d.css.map": "/static/css/main.5d7b0c5d.css.map",
+    "main.cb897f26.js.map": "/static/js/main.cb897f26.js.map",
+    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.972b2e52.css",
-    "static/js/main.57c840b5.js"
+    "static/css/main.5d7b0c5d.css",
+    "static/js/main.cb897f26.js"
   ]
 }
