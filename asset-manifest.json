@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Eco/static/css/main.9138b05d.css",
-    "main.js": "/Eco/static/js/main.80547f17.js",
+    "main.js": "/Eco/static/js/main.3963283f.js",
     "static/js/787.28cb0dcd.chunk.js": "/Eco/static/js/787.28cb0dcd.chunk.js",
     "static/media/Veglady.png": "/Eco/static/media/Veglady.319c615a874bbad8e814.png",
     "index.html": "/Eco/index.html",
     "main.9138b05d.css.map": "/Eco/static/css/main.9138b05d.css.map",
-    "main.80547f17.js.map": "/Eco/static/js/main.80547f17.js.map",
+    "main.3963283f.js.map": "/Eco/static/js/main.3963283f.js.map",
     "787.28cb0dcd.chunk.js.map": "/Eco/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9138b05d.css",
-    "static/js/main.80547f17.js"
+    "static/js/main.3963283f.js"
   ]
 }
