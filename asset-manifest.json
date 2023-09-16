@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.5d7b0c5d.css",
-    "main.js": "/static/js/main.cb897f26.js",
-    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
-    "static/media/Veglady.png": "/static/media/Veglady.319c615a874bbad8e814.png",
-    "index.html": "/index.html",
-    "main.5d7b0c5d.css.map": "/static/css/main.5d7b0c5d.css.map",
-    "main.cb897f26.js.map": "/static/js/main.cb897f26.js.map",
-    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/Eco/static/css/main.9138b05d.css",
+    "main.js": "/Eco/static/js/main.80547f17.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Eco/static/js/787.28cb0dcd.chunk.js",
+    "static/media/Veglady.png": "/Eco/static/media/Veglady.319c615a874bbad8e814.png",
+    "index.html": "/Eco/index.html",
+    "main.9138b05d.css.map": "/Eco/static/css/main.9138b05d.css.map",
+    "main.80547f17.js.map": "/Eco/static/js/main.80547f17.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Eco/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d7b0c5d.css",
-    "static/js/main.cb897f26.js"
+    "static/css/main.9138b05d.css",
+    "static/js/main.80547f17.js"
   ]
 }
