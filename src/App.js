@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import './App.css';
 
 import Footer from './Component/Page/Footer';
@@ -23,23 +24,24 @@ function App() {
   return (
     <div>
       <Navigation />
-   <Home/>
+
       <Routes>
-        <Route path="/private/*" element={<PrivateDashboard />} />
-        <Route path="/private/login" element={<PLogin />} />
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/SignIn" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/fruits" element={<FruitList />} />
-        <Route path="/fruitform" element={<FruitsForm />} />
-        <Route path="/fruits/:fruitId" element={<FruitDetails />} />
-        <Route path="/aboutus/tac" element={<TermsAndConditionsPage />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/order-summary" element={<SummaryPage />} />
-     
-        <Route path="/trmsandcdn" element={<TermsAndConditionsPage />} />
-        <Route path="/offer" element={<Offer />} />
+       
+          <Route path="/private/*" element={<PrivateDashboard />} />
+          <Route path="/private/login" element={<PLogin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/fruits" element={<FruitList />} />
+          <Route path="/fruitform" element={<FruitsForm />} />
+          <Route path="/fruits/:fruitId" element={<FruitDetails />} />
+          <Route path="/aboutus/tac" element={<TermsAndConditionsPage />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/order-summary" element={<SummaryPage />} />
+          <Route path="/trmsandcdn" element={<TermsAndConditionsPage />} />
+          <Route path="/offer" element={<Offer />} />
+          <Route path="/SignIn" element={<Login />} />
+          <Route path="/" element={<Home />} />
+       
       </Routes>
       <Footer />
     </div>

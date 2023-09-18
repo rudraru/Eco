@@ -7,9 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App/>
-  
+    <BrowserRouter basename="/Eco"> {/* Set this to your repository name */}
+      <App />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

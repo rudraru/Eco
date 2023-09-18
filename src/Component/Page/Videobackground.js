@@ -1,29 +1,23 @@
+// BackgroundImage.js
+
 import React from 'react';
-import ReactPlayer from 'react-player';
-import './Videobackground.css'
-const VideoBackground = () => {
+
+const BackgroundImage = ({ children }) => {
+  const backgroundImageStyle = {
+    backgroundImage: `url('https://tse2.mm.bing.net/th?id=OIP.mzJy_JKVRRdMsD6dHhniVAHaCW&pid=Api&P=0&h=180')`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    backgroundAttachment: 'fixed',
+    color: '#fff',
+   
+  };
+
   return (
-    <div className="video-background">
-      <ReactPlayer
-        url="../Video/Shoppingvideo.mp4"
-       
-        width="100%"
-        height="100%"
-        playing
-        loop
-        muted
-      />
-
-
-
-      <>
-      
-     
-      
-      
-      </>
+    <div style={backgroundImageStyle}>
+      {children}
     </div>
   );
 };
+  
+export default BackgroundImage;
 
-export default VideoBackground;
