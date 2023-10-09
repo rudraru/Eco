@@ -19,6 +19,9 @@ import PrivateDashboard from './Component/PrivateRoutes/PrivateDashboard';
 import PLogin from './Component/PrivateRoutes/page/Login';
 import FruitsForm from './Component/Page/FruitsForm';
 import Offer from './Component/Page/Offer';
+import Signupmog from './Component/Page/SignupMog';
+import Cart from './Component/Page/Cart';
+import Bcart from './Component/Page/Bcart';
 
 function App() {
   return (
@@ -41,6 +44,8 @@ function App() {
           <Route path="/offer" element={<Offer />} />
           <Route path="/SignIn" element={<Login />} />
           <Route path="/" element={<Home />} />
+          <Route path='/Signupmog' element={<Signupmog/>}/>
+          <Route path='/bcart' element={<Bcart/>}/>
        
       </Routes>
       <Footer />
