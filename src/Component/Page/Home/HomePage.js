@@ -98,7 +98,7 @@ const HomePage = () => {
             </button>
           ))}
         </div>
-        <div className="product-container" style={{border:'solid red'}}>
+        <div className="product-container" >
           {filteredFruits.map((fruit) => (
             <div 
               className="fruit fade-in"
