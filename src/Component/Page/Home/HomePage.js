@@ -98,9 +98,9 @@ const HomePage = () => {
             </button>
           ))}
         </div>
-        <div className="product-container">
+        <div className="product-container" style={{border:'solid red'}}>
           {filteredFruits.map((fruit) => (
-            <div
+            <div 
               className="fruit fade-in"
               key={fruit.id}
               onMouseEnter={() => handleProductHover(fruit.id)}
