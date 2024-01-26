@@ -1,7 +1,7 @@
 .banner {
-  background-image: url('../../Image/Veglady.png');
+  background-image: url("../../Image/Veglady.png");
   background-size: cover;
-  background-position:center;
+  background-position: center;
   height: 850px;
   display: flex;
   justify-content: center;
@@ -67,7 +67,6 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  
 }
 
 h2 {
@@ -134,7 +133,6 @@ h2 {
   }
 }
 
-
 .product-container {
   display: flex;
   flex-wrap: wrap;
@@ -151,6 +149,7 @@ h2 {
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   cursor: pointer;
+  height: 280px;
 }
 
 .fruit h3 {
@@ -162,7 +161,7 @@ h2 {
   width: 150px;
   height: 150px;
   object-fit: contain;
-  border-radius: 2  0%;
+  border-radius: 2 0%;
   background-size: contain;
 }
 
@@ -318,7 +317,7 @@ h2 {
     width: 100%;
     height: 35vh;
     max-width: 500px;
-margin-right: 35%;
+    margin-right: 35%;
   }
 
   .my-section h3 {
@@ -336,9 +335,6 @@ margin-right: 35%;
   }
 }
 
-
-
-
 @media (max-width: 768px) {
   .category-selector button {
     margin: 0 5px;
@@ -347,8 +343,6 @@ margin-right: 35%;
   }
 }
 
-
-
 .fruit {
   position: relative;
 }
@@ -356,9 +350,9 @@ margin-right: 35%;
 .shop-now-button {
   display: none;
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 15px;
+  /* left: 50%;
+  transform: translateX(-50%); */
   padding: 8px 16px;
   background-color: #ff9900;
   color: #fff;
@@ -387,12 +381,10 @@ margin-right: 35%;
   opacity: 1;
 }
 
-
 .fruit:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
 }
-
 
 .category-selector1 {
   display: flex;
