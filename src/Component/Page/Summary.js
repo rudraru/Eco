@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import './Summary.css';
 import { Link } from 'react-router-dom';
-
 const SummaryPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [customerName, setCustomerName] = useState('');
@@ -11,28 +10,13 @@ const SummaryPage = () => {
   const [email, setEmail] = useState('');
   const [contactNumber, setContactNumber] = useState('');
   const [orderConfirmed, setOrderConfirmed] = useState(false);
-  const [error, setError] = useState(null);
-  const [orderData, setOrderData] = useState({
-    reference_number: '',
-    ProductName: '',
-    Prices: 0,
-    Unit: '',
-    Total: 0,
-    CustomerName: '',
-    CustomerId: 0,
-    Email: '',
-    Address: '',
-    ContactNumber: '',
-    PaymentMethod: '',
-    DeliveryStatus: ''
-  });
 
   useEffect(() => {
     const storedCartItems = localStorage.getItem('cartItems');
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
     }
-    const cartItems = storedCartItems ? JSON.parse(storedCartItems) : []; 
+
     const storedCustomerName = localStorage.getItem('customerName');
     if (storedCustomerName) {
       setCustomerName(storedCustomerName);
@@ -48,9 +32,9 @@ const SummaryPage = () => {
     setCartItems(updatedCartItems);
   };
 
-  const calculateTotalAmount = () => {
+  function calculateTotalAmount(cartItems) {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+  }
 
   const orderAmount = calculateTotalAmount(cartItems);
   const shippingCharge = orderAmount < 1500 ? 150 : 0;
@@ -58,54 +42,108 @@ const SummaryPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!paymentMethod || cartItems.length === 0) {
+      window.alert('Please select a payment method and add products to the bill.');
+      return;
+    }
+
  
-    fetch('http://localhost:10000/api/orders', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-      
+
+    // Create the invoice object
+    const invoice = {
+      customerName,
+      email,
+      address,
+      contactNumber,
+      cartItems,
+      paymentMethod,
+      orderAmount,
+      shippingCharge,
+      totalAmount,
+    };
+
+    // Print the invoice
+    printInvoice(invoice);
+
+    // Set the order confirmation state to true
+    setOrderConfirmed(true);
+
+    // Clear the cart items
+    setCartItems([]);
+  };
+
+  useEffect(() => {
+    if (orderConfirmed) {
+      // Redirect to the homepage after 2 seconds
+      const redirectTimeout = setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
+
+      // Cleanup the timeout on component unmount
+      return () => clearTimeout(redirectTimeout);
+    }
+  }, [orderConfirmed]);
+
+  const printInvoice = (invoice) => {
+    const printWindow = window.open('', '', 'width=600,height=600');
+    printWindow.document.write('<html><head><title>Invoice</title>');
+    printWindow.document.write(
+      '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">'
+    );
+    printWindow.document.write('</head><body>');
+    printWindow.document.write('<div class="container">');
+    printWindow.document.write('<div class="text-center mt-3">');
+    printWindow.document.write('<h1>Kishan ko Bazar</h1>');
+    printWindow.document.write('</div>');
+    printWindow.document.write('<h4>Customer Details:</h4>');
+
+    printWindow.document.write(`<p>Customer: ${invoice.customerName}</p>`);
+    printWindow.document.write(`<p>Address: ${invoice.address}</p>`);
+    printWindow.document.write(`<p>Email: ${invoice.email}</p>`);
+    printWindow.document.write(`<p>Contact Number: ${invoice.contactNumber}</p>`);
+    printWindow.document.write(`<p>Payment Method: ${invoice.paymentMethod}</p>`);
+    // Include form details in the invoice
+ 
    
-        orderAmount: orderAmount,
-        shippingCharge: shippingCharge,
-        totalAmount: totalAmount,
-        customerName: customerName,
-        address: address,
-        email: email,
-        contactNumber: contactNumber,
-        paymentMethod: paymentMethod,
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json(); // Parse the JSON response only if it's a successful response
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then((data) => {
-        console.log('Order created successfully:', data);
-        // Handle success, e.g., show a success message to the user
-      })
-      .catch((error) => {
-        console.error('Error creating order:', error);
-        // Handle errors, e.g., display an error message to the user
-      });
+    printWindow.document.write('<h3 class="mt-4">Invoice Details:</h3>'); 
+    printWindow.document.write('<table class="table table-bordered invoice-items">');
+    printWindow.document.write('<thead>');
+    printWindow.document.write('<tr>');
+    printWindow.document.write('<th>S.N</th>');
+    printWindow.document.write('<th>Product Name</th>');
+    printWindow.document.write('<th>Price</th>');
+    printWindow.document.write('<th>Quantity</th>');
+    printWindow.document.write('<th>Unit</th>');
+    printWindow.document.write('<th>Total</th>');
+    printWindow.document.write('</tr>');
+    printWindow.document.write('</thead>');
+    printWindow.document.write('<tbody>');
+    invoice.cartItems.forEach((item, index) => {
+      printWindow.document.write('<tr>');
+      printWindow.document.write(`<td>${index + 1}</td>`);
+      printWindow.document.write(`<td>${item.name}</td>`);
+      printWindow.document.write(`<td>${item.price}</td>`);
+      printWindow.document.write(`<td>${item.quantity}</td>`);
+      printWindow.document.write(`<td>${item.unit}</td>`);
+      printWindow.document.write(`<td>${item.price * item.quantity}</td>`);
+      printWindow.document.write('</tr>');
+    });
+    printWindow.document.write('</tbody>');
+    printWindow.document.write('</table>');
+    printWindow.document.write(`<p>Amount: ${invoice.orderAmount}</p>`);
+    printWindow.document.write(`<p>Shipping Charge: ${invoice.shippingCharge}</p>`);
+    printWindow.document.write(`<p>Total Amount: ${invoice.totalAmount}</p>`);
+    printWindow.document.write('<p class="text-center mt-4">Thank you for your purchase!</p>');
+    printWindow.document.write('</div>');
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
   };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setOrderData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
   
 
   return (
 <div>
-
     <Link className='Backclass' to='/'>
        Home   /
     </Link>
