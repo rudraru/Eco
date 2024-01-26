@@ -106,15 +106,18 @@ const Cart = () => {
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
 
-  const user = localStorage.getItem('user');
-  if (!user) {
-    // Remove the cart items from local storage
-    localStorage.removeItem("cartItems");
-    // Redirect to the login page if the user is not logged in
-    window.location.href = '/SignIn';
-  }
-
+  const user = localStorage.getItem('userId');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to login page if the user is not logged in
+    if (!user) {
+      // Remove the cart items from local storage
+      localStorage.removeItem("cartItems");
+      // Redirect to the login page
+      navigate('/SignIn');
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));

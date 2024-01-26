@@ -20,14 +20,7 @@ const Signup = () => {
     event.preventDefault();
 
     // Check if email already exists
-    const existingUser = users.find(user => user.email === email);
-    if (existingUser) {
-      setError('Email is already taken');
-      setTimeout(() => {
-        setError('');
-      }, 4000);
-      return;
-    }
+ 
 
     // Check if passwords match
     if (password !== confirmPassword) {
